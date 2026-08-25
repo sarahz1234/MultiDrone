@@ -61,6 +61,7 @@ class RRTPlanner:
                 high=self.bounds[:, 1],
                 size=(self.num_drones, 3)
             ).astype(np.float32)
+            self.samples_drawn += 1 # count every draw, including rejected ones
             if self.sim.is_valid(q):
                 return q
 
@@ -91,10 +92,12 @@ class RRTPlanner:
             ADVANCED -- moved step_size toward q_target
             REACHED -- connect exactly to q_target
         """
+        self.extend_calls += 1
         near_idx = self.nearest(tree, q_target)
         q_near = tree.nodes[near_idx]
         q_new = self.steer(q_near, q_target)
 
+        self.motion_valid_calls += 1
         if not self.sim.motion_valid(q_near, q_new):
             return "TRAPPED", None
 
@@ -132,6 +135,11 @@ class RRTPlanner:
         return full_path
 
     def plan(self):
+        # Instrumentation counters, reset per plan() call
+        self.samples_drawn = 0
+        self.extend_calls = 0
+        self.motion_valid_calls = 0
+
         q_start = self.sim.initial_configuration
         q_goal = self.sim.goal_positions
 
@@ -141,6 +149,7 @@ class RRTPlanner:
         tree_a, tree_b = start_tree, goal_tree
 
         start_time = time.time()
+        result = None
         while time.time() - start_time < self.time_limit:
             q_rand = self.sample_config()
             status_a, node_a = self.extend(tree_a, q_rand)
@@ -150,11 +159,26 @@ class RRTPlanner:
                 status_b, node_b = self.connect(tree_b, q_new)
 
                 if status_b == "REACHED":
-                    return self.combine_paths(tree_a, node_a, tree_b, node_b)
+                    result = self.combine_paths(tree_a, node_a, tree_b, node_b)
+                    break
 
             tree_a, tree_b = tree_b, tree_a
 
-        return None # failure
+        # Record experiment statistics
+        self.last_run_stats = {
+            "success": result is not None,
+            "elapsed_time": time.time() - start_time,
+            "samples_drawn": self.samples_drawn,
+            "extend_calls": self.extend_calls,
+            "motion_valid_calls": self.motion_valid_calls,
+            "nodes_expanded": len(start_tree.nodes) + len(goal_tree.nodes),
+            "path_length": (
+                sum(self.distance(result[i], result[i + 1]) for i in range(len(result) - 1))
+                if result is not None else None
+            )
+        }
+
+        return result
 
 if __name__ == "__main__":
     from multi_drone import MultiDrone

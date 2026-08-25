@@ -26,7 +26,28 @@ DRONE_DIAMETER = 0.6
 def _bounds():
     return {"x": [LO, HI], "y": [LO, HI], "z": [LO, HI]}
 
-def _full_height_gap_walls(wall_x, gap_centre_y, gap_width, thickness=1.0):
+def _full_height_gap_walls(wall_x, gap_center_y, gap_width, thickness=1.0):
+    """
+    Two box obstacles spanning the FULL z-range, split along y with a gap
+    of gap_width centered at gap_center_y. This is what actually forces
+    horizontal squeezing instead of over-flight.
+    """
+    left_size_y = (gap_center_y - gap_width / 2.0) - LO
+    right_size_y = HI - (gap_center_y + gap_width / 2.0)
+    assert left_size_y > 0 and right_size_y > 0, "gap too wide / off-center for these bounds"
 
-    left_size_y = (gap_centre_y - gap_width / 2.0) - LO
-    right_size_y = HI - (gap_centre_y + gap_width / 2.0)
+    z_mid = (LO + HI) / 2.0
+    return [
+        {
+            "type": "box",
+            "position": [wall_x, LO + left_size_y / 2.0, z_mid],
+            "size": [thickness, left_size_y, HI - LO],
+            "color": "red",
+        },
+        {
+            "type": "box",
+            "position": [wall_x, gap_center_y + gap_width / 2.0 + right_size_y / 2.0, z_mid],
+            "size": [thickness, right_size_y, HI - LO],
+            "color": "red",
+        },
+    ]

@@ -183,7 +183,7 @@ class RRTPlanner:
 if __name__ == "__main__":
     from multi_drone import MultiDrone
 
-    env_file = "tests/environments/env_medium.yaml"
+    env_file = "environment.yaml"
     sim = MultiDrone(num_drones=5, environment_file=env_file)
     planner = RRTPlanner(
         sim,

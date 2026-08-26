@@ -1,0 +1,2 @@
+environment,n_trials,success_rate,success_rate_95ci,elapsed_time_mean,elapsed_time_95ci,samples_drawn_mean,samples_drawn_95ci,extend_calls_mean,extend_calls_95ci,motion_valid_calls_mean,motion_valid_calls_95ci,nodes_expanded_mean,nodes_expanded_95ci,path_length_mean,path_length_95ci
+hard,30,0.9666666666666667,"[0.83, 0.99]",4.617069029808045,"[3.14, 6.09]",3141.5333333333333,"[2638.19, 3644.88]",4253.3,"[3576.33, 4930.27]",4253.3,"[3576.33, 4930.27]",1613.4,"[1357.72, 1869.08]",226.3759318384631,"[218.82, 233.93]"

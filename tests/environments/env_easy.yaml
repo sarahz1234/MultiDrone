@@ -1,0 +1,40 @@
+bounds:
+  x: [0, 50]
+  y: [0, 50]
+  z: [0, 50]
+
+initial_configuration: [[2, 5, 25], [2, 15, 25], [2, 25, 25], [2, 35, 25], [2, 45, 25]] 
+
+obstacles:
+  - type: box
+    position: [37.17, 6.398, 8.997] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+  - type: sphere
+    position: [38.02, 6.738, 16.84]
+    radius: 1.343 
+    color: gray
+
+  - type: sphere
+    position: [25.34, 35.93, 22.37]
+    radius: 1.356 
+    color: gray
+
+  - type: sphere
+    position: [11.66, 35.14, 20]
+    radius: 0.8465 
+    color: gray
+
+goals:
+  - position: [48, 5, 25] # Goal 1
+    radius: 1
+  - position: [48, 15, 25] # Goal 2
+    radius: 1
+  - position: [48, 25, 25] # Goal 3
+    radius: 1
+  - position: [48, 35, 25] # Goal 4
+    radius: 1
+  - position: [48, 45, 25] # Goal 5
+    radius: 1

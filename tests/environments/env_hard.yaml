@@ -1,0 +1,142 @@
+bounds:
+  x: [0, 50]
+  y: [0, 50]
+  z: [0, 50]
+
+initial_configuration: [[2, 5, 25], [2, 15, 25], [2, 25, 25], [2, 35, 25], [2, 45, 25]] 
+
+obstacles:
+  - type: box
+    position: [20, 12, 25] 
+    size: [1, 24, 50] 
+    rotation: [0, 0, 0] 
+    color: red
+
+  - type: box
+    position: [20, 38, 25] 
+    size: [1, 24, 50] 
+    rotation: [0, 0, 0] 
+    color: red
+
+  - type: sphere
+    position: [29.44, 6.337, 10.71]
+    radius: 0.8266 
+    color: gray
+
+  - type: sphere
+    position: [40.73, 4.54, 3.06]
+    radius: 1.246 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[4.857, 9.678, 5.733], [4.857, 9.678, 9.113]] 
+    radius: 0.8551 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [33.03, 17.32, 3.612]
+    radius: 1.152 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[20.67, 38.25, 23.43], [20.67, 38.25, 26.23]] 
+    radius: 0.9298 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: cylinder
+    endpoints: [[13.95, 41.96, 22.52], [13.95, 41.96, 27.18]] 
+    radius: 1.135 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [44.7, 28.44, 17.28]
+    radius: 0.8009 
+    color: gray
+
+  - type: box
+    position: [7.924, 28.08, 23.74] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+  - type: box
+    position: [40.9, 10.13, 24.91] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[12.87, 34.08, 3.492], [12.87, 34.08, 7.213]] 
+    radius: 0.6596 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [5.247, 27.27, 8.738]
+    radius: 0.8395 
+    color: gray
+
+  - type: box
+    position: [34.93, 21.58, 20.7] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[20.83, 31.87, 9.35], [20.83, 31.87, 13.62]] 
+    radius: 1.038 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [32.89, 23.27, 15.08]
+    radius: 1.297 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[46.87, 6.147, 2.476], [46.87, 6.147, 4.659]] 
+    radius: 0.7483 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [22.98, 23.31, 22.63]
+    radius: 1.294 
+    color: gray
+
+  - type: sphere
+    position: [36.5, 29.99, 23.32]
+    radius: 0.8513 
+    color: gray
+
+  - type: sphere
+    position: [17.4, 28.55, 17.05]
+    radius: 1.201 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[46.12, 34, 1.708], [46.12, 34, 6.689]] 
+    radius: 1.098 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: cylinder
+    endpoints: [[23.84, 13.23, 9.339], [23.84, 13.23, 13.41]] 
+    radius: 0.9152 
+    rotation: [0, 0, 0]
+    color: gray
+
+goals:
+  - position: [48, 45, 25] # Goal 1
+    radius: 1
+  - position: [48, 15, 25] # Goal 2
+    radius: 1
+  - position: [48, 25, 25] # Goal 3
+    radius: 1
+  - position: [48, 35, 25] # Goal 4
+    radius: 1
+  - position: [48, 5, 25] # Goal 5
+    radius: 1

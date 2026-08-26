@@ -1,0 +1,76 @@
+bounds:
+  x: [0, 50]
+  y: [0, 50]
+  z: [0, 50]
+
+initial_configuration: [[2, 5, 25], [2, 15, 25], [2, 25, 25], [2, 35, 25], [2, 45, 25]] 
+
+obstacles:
+  - type: box
+    position: [25, 11.75, 25] 
+    size: [1, 23.5, 50] 
+    rotation: [0, 0, 0] 
+    color: red
+
+  - type: box
+    position: [25, 38.25, 25] 
+    size: [1, 23.5, 50] 
+    rotation: [0, 0, 0] 
+    color: red
+
+  - type: box
+    position: [17.87, 23.17, 23.57] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[7.259, 3.039, 10.76], [7.259, 3.039, 15.19]] 
+    radius: 1.145 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [42.79, 38.77, 6.581]
+    radius: 1.051 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[3.045, 4.92, 1.772], [3.045, 4.92, 5.498]] 
+    radius: 0.9488 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: sphere
+    position: [7.477, 32.86, 6.517]
+    radius: 1.034 
+    color: gray
+
+  - type: sphere
+    position: [40.6, 14.45, 24.24]
+    radius: 1.472 
+    color: gray
+
+  - type: cylinder
+    endpoints: [[12.48, 6.427, 16.87], [12.48, 6.427, 19.92]] 
+    radius: 1.052 
+    rotation: [0, 0, 0]
+    color: gray
+
+  - type: box
+    position: [7.93, 32.73, 21.3] 
+    size: [2, 2, 2] 
+    rotation: [0, 0, 0] 
+    color: gray
+
+goals:
+  - position: [48, 5, 25] # Goal 1
+    radius: 1
+  - position: [48, 15, 25] # Goal 2
+    radius: 1
+  - position: [48, 25, 25] # Goal 3
+    radius: 1
+  - position: [48, 35, 25] # Goal 4
+    radius: 1
+  - position: [48, 45, 25] # Goal 5
+    radius: 1
